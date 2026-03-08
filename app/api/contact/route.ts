@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "DCA Invest <noreply@diamondcapitalafrica.com>",
+        from: "DCA Invest <onboarding@resend.dev>",
         to: ["info@diamondcapitalafrica.com"],
         reply_to: email,
         subject: `Investor enquiry from ${name}${organisation ? ` — ${organisation}` : ""}`,
