@@ -7,6 +7,7 @@ import WhoItsFor from "./components/WhoItsFor";
 import ContactCTA from "./components/ContactCTA";
 import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
+import WhatsAppFloat from "./components/WhatsAppFloat";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <FAQ />
       <ContactCTA />
       <Footer />
+      <WhatsAppFloat />
     </div>
   );
 }

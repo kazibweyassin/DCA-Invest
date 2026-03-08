@@ -9,7 +9,12 @@ export default function Nav() {
       {/* Top info bar */}
       <div className="hidden md:block bg-stone-900 text-stone-300 text-xs">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-1.5">
-          <span>Kampala, Uganda &mdash; East Africa Time (EAT, UTC+3)</span>
+          <div className="flex items-center gap-6">
+            <span>Kampala, Uganda &mdash; East Africa Time (EAT, UTC+3)</span>
+            <a href="tel:+256704833021" className="text-stone-300 transition hover:text-amber-400">
+              +256 (0) 704 833 021
+            </a>
+          </div>
           <div className="flex items-center gap-6">
             <span>
               <span className="text-amber-400 font-medium">Office hours:</span>{" "}

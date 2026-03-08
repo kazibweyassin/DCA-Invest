@@ -28,6 +28,17 @@ export default function Footer() {
             >
               diamondcapitalafrica.com &#8599;
             </a>
+            <a href="tel:+256704833021" className="text-stone-500 transition hover:text-stone-800">
+              +256 (0) 704 833 021
+            </a>
+            <a
+              href="https://wa.me/256704833021?text=Hello%2C%20I%20am%20interested%20in%20your%20investor%20advisory%20services."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-stone-500 transition hover:text-stone-800"
+            >
+              Chat on WhatsApp &#8599;
+            </a>
             <a href="#contact" className="text-stone-500 transition hover:text-stone-800">
               Book a call
             </a>
