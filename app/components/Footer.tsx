@@ -1,15 +1,18 @@
+import Image from "next/image";
+
 export default function Footer() {
   return (
     <footer className="border-t border-stone-200 bg-[#fdfbf7] px-6 py-12">
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-center">
           <div>
-            <div className="flex items-center gap-2.5">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-amber-400">
-                <span className="text-[11px] font-bold text-stone-900">DCA</span>
-              </div>
-              <span className="text-sm font-semibold text-stone-800">Diamond Capital Africa</span>
-            </div>
+            <Image
+              src="/Logo.png"
+              alt="Diamond Capital Africa"
+              width={120}
+              height={40}
+              className="h-10 w-auto object-contain"
+            />
             <p className="mt-2 max-w-xs text-xs leading-relaxed text-stone-400">
               Investor advisory for Uganda&apos;s mineral sector. Active traders in
               Kampala since our founding — not researchers.

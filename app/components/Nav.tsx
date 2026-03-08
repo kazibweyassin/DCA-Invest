@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -24,29 +25,17 @@ export default function Nav() {
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a
-          href="https://diamondcapitalafrica.com"
-          className="flex items-center gap-2.5 group"
-        >
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-amber-400">
-            <span className="text-[11px] font-bold tracking-tight text-stone-900">DCA</span>
-          </div>
-          <div className="flex flex-col leading-none">
-            <span
-              className={`text-[11px] font-semibold uppercase tracking-[0.15em] transition-colors ${
-                scrolled ? "text-stone-500" : "text-white/70"
-              }`}
-            >
-              Diamond Capital Africa
-            </span>
-            <span
-              className={`text-[10px] transition-colors ${
-                scrolled ? "text-stone-400" : "text-white/50"
-              }`}
-            >
-              Investor Advisory
-            </span>
-          </div>
+        <a href="https://diamondcapitalafrica.com" className="flex items-center">
+          <Image
+            src="/Logo.png"
+            alt="Diamond Capital Africa"
+            width={120}
+            height={40}
+            className={`h-10 w-auto object-contain transition-all duration-300 ${
+              scrolled ? "brightness-100" : "brightness-0 invert"
+            }`}
+            priority
+          />
         </a>
 
         <a
