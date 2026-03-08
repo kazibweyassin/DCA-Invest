@@ -19,7 +19,13 @@ export default function Footer() {
             </p>
           </div>
           <div className="flex flex-col items-start gap-2 text-sm sm:items-end">
-            <a href="https://diamondcapitalafrica.com" className="text-stone-500 transition hover:text-stone-800">
+            <p className="text-[11px] uppercase tracking-widest text-stone-400">Part of</p>
+            <a
+              href="https://diamondcapitalafrica.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-stone-700 transition hover:text-amber-600"
+            >
               diamondcapitalafrica.com &#8599;
             </a>
             <a href="#contact" className="text-stone-500 transition hover:text-stone-800">
