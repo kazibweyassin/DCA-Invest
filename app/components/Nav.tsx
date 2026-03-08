@@ -14,37 +14,57 @@ export default function Nav() {
   }, []);
 
   return (
-    <motion.nav
-      initial={{ opacity: 0, y: -8 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "border-b border-stone-200 bg-[#fdfbf7]/95 shadow-sm backdrop-blur-sm"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="https://diamondcapitalafrica.com" className="flex items-center">
-          <Image
-            src="/Logo.png"
-            alt="Diamond Capital Africa"
-            width={120}
-            height={40}
-            className={`h-10 w-auto object-contain transition-all duration-300 ${
-              scrolled ? "brightness-100" : "brightness-0 invert"
-            }`}
-            priority
-          />
-        </a>
-
-        <a
-          href="#contact"
-          className="rounded-sm bg-red-700 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-red-800"
-        >
-          Book a call
-        </a>
+    <div className="fixed top-0 left-0 right-0 z-50">
+      {/* Top info bar */}
+      <div className="hidden md:block bg-stone-900 text-stone-300 text-xs">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-1.5">
+          <span>Kampala, Uganda &mdash; East Africa Time (EAT, UTC+3)</span>
+          <div className="flex items-center gap-6">
+            <span>
+              <span className="text-amber-400 font-medium">Office hours:</span>{" "}
+              Mon–Fri, 8:00 am – 6:00 pm EAT
+            </span>
+            <span>
+              <span className="text-amber-400 font-medium">Response:</span>{" "}
+              Within 24 hours
+            </span>
+          </div>
+        </div>
       </div>
-    </motion.nav>
+
+      {/* Main nav */}
+      <motion.nav
+        initial={{ opacity: 0, y: -8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className={`transition-all duration-300 ${
+          scrolled
+            ? "border-b border-stone-200 bg-[#fdfbf7]/95 shadow-sm backdrop-blur-sm"
+            : "bg-transparent"
+        }`}
+      >
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+          <a href="https://diamondcapitalafrica.com" className="flex items-center">
+            <Image
+              src="/Logo.png"
+              alt="Diamond Capital Africa"
+              width={120}
+              height={40}
+              className={`h-10 w-auto object-contain transition-all duration-300 ${
+                scrolled ? "brightness-100" : "brightness-0 invert"
+              }`}
+              priority
+            />
+          </a>
+
+          <a
+            href="#contact"
+            className="rounded-sm bg-red-700 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-red-800"
+          >
+            Book a call
+          </a>
+        </div>
+      </motion.nav>
+    </div>
   );
 }
