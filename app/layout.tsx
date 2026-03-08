@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | Diamond Capital Africa",
   },
   description:
-    "Foreign investor advisory for Uganda's gold and mineral sector. Diamond Capital Africa are active gold traders in Kampala — not researchers. Real regulatory access, real government relationships, real compliance infrastructure.",
+    "Foreign investor advisory for Uganda's gold and mineral sector. Active traders in Kampala — real regulatory access, real government relationships.",
   keywords: [
     "Uganda gold investment",
     "Uganda mining investment",
@@ -109,8 +109,52 @@ const jsonLd = {
         name: "Uganda",
       },
       url: BASE_URL,
-    },
-  ],
+    },    {
+      "@type": "FAQPage",
+      "@id": `${BASE_URL}/#faq`,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "How can a foreign investor enter Uganda's gold sector?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "The most reliable path is through an established, licensed operator already active in the market. Diamond Capital Africa can introduce you to vetted suppliers, walk you through the regulatory requirements, and help you structure a compliant investment.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What licences are required to invest in Uganda's mining sector?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Depending on your structure, you may need a UCDA export licence, Bank of Uganda compliance registration, and a DGSM licence from the Ministry of Energy. DCA maps the exact requirements for your situation.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Is Uganda's mineral sector safe for foreign investors?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Uganda has a functioning regulatory framework and active export infrastructure. The main risks — supplier verification, compliance gaps, currency exposure — are manageable with the right local partner.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What does Diamond Capital Africa's advisory engagement include?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Engagements include market entry assessments, regulatory mapping, warm introductions to vetted suppliers, and ongoing intelligence retainers. Structured as one-time advisory or monthly retainer.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Does DCA work with investors outside East Africa?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes. Most advisory clients are foreign investors — family offices, mining funds, and institutional investors based in Europe, the Middle East, and North America.",
+          },
+        },
+      ],
+    },  ],
 };
 
 export default function RootLayout({

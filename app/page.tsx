@@ -5,6 +5,7 @@ import WhatWeOffer from "./components/WhatWeOffer";
 import HowItWorks from "./components/HowItWorks";
 import WhoItsFor from "./components/WhoItsFor";
 import ContactCTA from "./components/ContactCTA";
+import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
       <WhatWeOffer />
       <HowItWorks />
       <WhoItsFor />
+      <FAQ />
       <ContactCTA />
       <Footer />
     </div>
