@@ -6,14 +6,14 @@ import { useRef, useState } from "react";
 export default function ContactCTA() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
-  const [status, setStatus] = useState("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
   const [form, setForm] = useState({ name: "", email: "", organisation: "", message: "" });
 
-  function handleChange(e) {
+  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
-  async function handleSubmit(e) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("sending");
     await new Promise((r) => setTimeout(r, 1200));
