@@ -10,7 +10,7 @@ export default function Hero() {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage:
-            "url('https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=1920&q=80')",
+            "url('https://www.goldmarket.fr/wp-content/uploads/2025/08/thumbnail-148.jpeg.webp')",
         }}
       />
       {/* Overlays */}
