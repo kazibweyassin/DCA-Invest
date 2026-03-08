@@ -78,12 +78,12 @@ export default function WhyDCA() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mb-10 text-base leading-relaxed text-stone-600"
           >
-            Trans African Investments will give you a sector overview across ten
-            countries and twelve industries. We will give you the specific mine,
-            the actual exporter, the real price, and the compliance step that
-            most investors miss. Gold is where our operational depth is deepest
-            — and the regulatory relationships we have built extend across
-            Uganda&apos;s broader mineral sector too.
+            Generalist FDI consultants will give you a sector overview across
+            ten countries and twelve industries. Diamond Capital Africa will
+            give you the specific mine, the actual exporter, the real price,
+            and the compliance step that most investors miss. Gold is where our
+            operational depth is deepest — and the regulatory relationships we
+            have built extend across Uganda&apos;s broader mineral sector too.
           </motion.p>
 
           {/* Proof list — no emojis */}
