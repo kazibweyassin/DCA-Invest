@@ -16,8 +16,22 @@ export default function ContactCTA() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("sending");
-    await new Promise((r) => setTimeout(r, 1200));
-    setStatus("sent");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setStatus("sent");
+      } else {
+        setStatus("idle");
+        alert("Something went wrong. Please email us directly at info@diamondcapitalafrica.com");
+      }
+    } catch {
+      setStatus("idle");
+      alert("Something went wrong. Please email us directly at info@diamondcapitalafrica.com");
+    }
   }
 
   return (
