@@ -1,38 +1,12 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef } from "react";
+import MultiStepForm from "./MultiStepForm";
 
 export default function ContactCTA() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
-  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
-  const [form, setForm] = useState({ name: "", email: "", organisation: "", message: "" });
-
-  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  }
-
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setStatus("sending");
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      if (res.ok) {
-        setStatus("sent");
-      } else {
-        setStatus("idle");
-        alert("Something went wrong. Please email us directly at info@diamondcapitalafrica.com");
-      }
-    } catch {
-      setStatus("idle");
-      alert("Something went wrong. Please email us directly at info@diamondcapitalafrica.com");
-    }
-  }
 
   return (
     <section id="contact" className="bg-[#fdfbf7] px-6 py-24">
@@ -92,50 +66,7 @@ export default function ContactCTA() {
             transition={{ duration: 0.6, delay: 0.25 }}
             className="rounded-lg border border-stone-200 bg-white p-8 shadow-sm"
           >
-            {status === "sent" ? (
-              <div className="flex flex-col items-center justify-center py-16 text-center">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100">
-                  <svg className="h-6 w-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <p className="text-lg font-semibold text-stone-900">Message received.</p>
-                <p className="mt-2 text-sm text-stone-500">We will be in touch within one business day.</p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="grid gap-5 sm:grid-cols-2">
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-semibold uppercase tracking-wider text-stone-500" htmlFor="name">Full name</label>
-                  <input id="name" name="name" type="text" required value={form.name} onChange={handleChange}
-                    placeholder="Your name"
-                    className="rounded border border-stone-200 bg-stone-50 px-4 py-3 text-sm text-stone-900 placeholder-stone-400 outline-none transition focus:border-amber-400 focus:ring-1 focus:ring-amber-400" />
-                </div>
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-semibold uppercase tracking-wider text-stone-500" htmlFor="email">Email address</label>
-                  <input id="email" name="email" type="email" required value={form.email} onChange={handleChange}
-                    placeholder="you@fund.com"
-                    className="rounded border border-stone-200 bg-stone-50 px-4 py-3 text-sm text-stone-900 placeholder-stone-400 outline-none transition focus:border-amber-400 focus:ring-1 focus:ring-amber-400" />
-                </div>
-                <div className="flex flex-col gap-1.5 sm:col-span-2">
-                  <label className="text-xs font-semibold uppercase tracking-wider text-stone-500" htmlFor="organisation">Organisation</label>
-                  <input id="organisation" name="organisation" type="text" value={form.organisation} onChange={handleChange}
-                    placeholder="Fund name, family office, company"
-                    className="rounded border border-stone-200 bg-stone-50 px-4 py-3 text-sm text-stone-900 placeholder-stone-400 outline-none transition focus:border-amber-400 focus:ring-1 focus:ring-amber-400" />
-                </div>
-                <div className="flex flex-col gap-1.5 sm:col-span-2">
-                  <label className="text-xs font-semibold uppercase tracking-wider text-stone-500" htmlFor="message">What are you trying to understand?</label>
-                  <textarea id="message" name="message" required rows={5} value={form.message} onChange={handleChange}
-                    placeholder="Your investment mandate, what you already know, what you are trying to figure out."
-                    className="rounded border border-stone-200 bg-stone-50 px-4 py-3 text-sm text-stone-900 placeholder-stone-400 outline-none transition focus:border-amber-400 focus:ring-1 focus:ring-amber-400" />
-                </div>
-                <div className="sm:col-span-2">
-                  <button type="submit" disabled={status === "sending"}
-                    className="w-full rounded-sm bg-red-700 py-3.5 text-sm font-semibold text-white transition hover:bg-red-800 disabled:opacity-60 sm:w-auto sm:px-8">
-                    {status === "sending" ? "Sending…" : "Send message"}
-                  </button>
-                </div>
-              </form>
-            )}
+            <MultiStepForm />
           </motion.div>
         </div>
       </div>

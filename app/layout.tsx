@@ -18,6 +18,13 @@ const BASE_URL = "https://invest.diamondcapitalafrica.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
+  applicationName: "Diamond Capital Africa — Investor Advisory",
+  referrer: "origin-when-cross-origin",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   title: {
     default: "Uganda Gold & Mineral Sector Investment Advisory | Diamond Capital Africa",
     template: "%s | Diamond Capital Africa",
@@ -61,12 +68,35 @@ export const metadata: Metadata = {
     siteName: "Diamond Capital Africa — Investor Advisory",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: `${BASE_URL}/opengraph-image`,
+        width: 1200,
+        height: 630,
+        alt: "Uganda Gold & Mineral Sector Investment Advisory — Diamond Capital Africa",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Uganda Gold & Mineral Investment Advisory | Diamond Capital Africa",
     description:
       "Foreign investor advisory for Uganda's gold and mineral sector. Active traders in Kampala — not researchers.",
+    images: [`${BASE_URL}/opengraph-image`],
+  },
+  icons: {
+    icon: [
+      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicon.ico" },
+    ],
+    apple: "/apple-touch-icon.png",
+    shortcut: "/favicon.ico",
+    other: [
+      { rel: "manifest", url: "/site.webmanifest" },
+      { rel: "android-chrome-192x192", url: "/android-chrome-192x192.png" },
+      { rel: "android-chrome-512x512", url: "/android-chrome-512x512.png" },
+    ],
   },
 };
 
@@ -87,6 +117,16 @@ const jsonLd = {
         addressCountry: "UG",
       },
       areaServed: "Worldwide",
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          contactType: "Investor Advisory",
+          areaServed: "Worldwide",
+          availableLanguage: ["English"],
+          telephone: "+256704833021",
+          email: "info@diamondcapitalafrica.com",
+        },
+      ],
       sameAs: ["https://diamondcapitalafrica.com"],
     },
     {
@@ -95,6 +135,18 @@ const jsonLd = {
       url: BASE_URL,
       name: "Diamond Capital Africa — Investor Advisory",
       publisher: { "@id": "https://diamondcapitalafrica.com/#organization" },
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${BASE_URL}/#webpage`,
+      url: BASE_URL,
+      name: "Uganda Gold & Mineral Sector Investment Advisory",
+      description:
+        "Foreign investor advisory for Uganda's gold and mineral sector with local operator, regulator, and compliance access.",
+      inLanguage: "en",
+      isPartOf: { "@id": `${BASE_URL}/#website` },
+      about: { "@id": `${BASE_URL}/#service` },
+      primaryImageOfPage: `${BASE_URL}/opengraph-image`,
     },
     {
       "@type": "Service",

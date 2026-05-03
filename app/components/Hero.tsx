@@ -1,8 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
+import MultiStepForm from "./MultiStepForm";
+import MultiStepFormMember from "./MultiStepFormMember";
 
 export default function Hero() {
+  const [open, setOpen] = useState(false);
+  const [openMember, setOpenMember] = useState(false);
   return (
     <section className="relative flex min-h-screen flex-col justify-end overflow-hidden">
       {/* Full-bleed photo background */}
@@ -61,16 +66,55 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 rounded-sm bg-red-700 px-8 py-4 text-base font-semibold text-white transition-all hover:bg-red-800 hover:shadow-xl"
-          >
-            Book a discovery call
-            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => setOpen(true)}
+              className="inline-flex items-center gap-2 rounded-sm bg-red-700 px-8 py-4 text-base font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-red-800 hover:shadow-xl"
+            >
+              Book a discovery call
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </button>
+            <button onClick={() => setOpenMember(true)} className="inline-flex items-center gap-2 rounded-sm border border-white/20 bg-white/5 px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/10">
+              Become a member
+            </button>
+          </div>
         </motion.div>
+
+        {/* Modal: multi-step form */}
+        {open && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center">
+            <div className="absolute inset-0 bg-black/60" onClick={() => setOpen(false)} />
+            <div className="relative z-10 mx-4 w-full max-w-3xl rounded-lg bg-white p-6 shadow-xl">
+              <div className="flex items-start justify-between">
+                <h3 className="text-lg font-semibold text-stone-900">Book a discovery call</h3>
+                <button aria-label="Close" onClick={() => setOpen(false)} className="ml-4 rounded bg-stone-100 p-2 text-stone-700 transition-all duration-200 hover:rotate-90 hover:bg-stone-200">
+                  ×
+                </button>
+              </div>
+              <div className="mt-4">
+                <MultiStepForm />
+              </div>
+            </div>
+          </div>
+        )}
+        {openMember && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center">
+            <div className="absolute inset-0 bg-black/60" onClick={() => setOpenMember(false)} />
+            <div className="relative z-10 mx-4 w-full max-w-3xl rounded-lg bg-white p-6 shadow-xl">
+              <div className="flex items-start justify-between">
+                <h3 className="text-lg font-semibold text-stone-900">Become a member</h3>
+                <button aria-label="Close" onClick={() => setOpenMember(false)} className="ml-4 rounded bg-stone-100 p-2 text-stone-700 transition-all duration-200 hover:rotate-90 hover:bg-stone-200">
+                  ×
+                </button>
+              </div>
+              <div className="mt-4">
+                <MultiStepFormMember />
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Stats bar */}
