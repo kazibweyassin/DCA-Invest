@@ -88,10 +88,9 @@ export const metadata: Metadata = {
     icon: [
       { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
       { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
-      { url: "/favicon.ico" },
     ],
     apple: "/apple-touch-icon.png",
-    shortcut: "/favicon.ico",
+    shortcut: "/favicon-32x32.png",
     other: [
       { rel: "manifest", url: "/site.webmanifest" },
       { rel: "android-chrome-192x192", url: "/android-chrome-192x192.png" },
