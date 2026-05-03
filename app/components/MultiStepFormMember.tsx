@@ -47,13 +47,15 @@ export default function MultiStepFormMember() {
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
-    const { name, value } = e.target;
-    if (e.target instanceof HTMLInputElement && e.target.type === "checkbox") {
-      setForm((p) => ({ ...p, [name]: e.target.checked }));
+    const target = e.target;
+    const { name, value } = target;
+    if (target instanceof HTMLInputElement && target.type === "checkbox") {
+      const { checked } = target;
+      setForm((p) => ({ ...p, [name]: checked }));
     } else {
       setForm((p) => ({ ...p, [name]: value }));
     }
-    setErrors((prev) => ({ ...prev, [e.target.name]: "" }));
+    setErrors((prev) => ({ ...prev, [name]: "" }));
   }
 
   function validateStep(s: number) {
